@@ -1,11 +1,11 @@
-# Prometheus Mesos exporter
+# Prometheus Mesos metrics snapshot exporter
 
-This is an exporter for Prometheus to get Mesos data.
+This is an exporter for Prometheus to get Mesos metrics snapshot data.
 
 ## Building and running
 
     make
-    ./mesos_exporter <flags>
+    ./prometheus_mesos_metrics <flags>
 
 ### Flags
 
@@ -21,28 +21,13 @@ log.level                      | Only log messages with the given severity or ab
 
 
 ### Modes
-mesos_exporter can operate in two modes: discovery and local.
+prometheus_mesos_metrics can operate in two modes: discovery and local.
 
 In local mode only the IP specified with the commandline flag `-exporter.local-address` will be queried and exported.
 This mode is to facilitate having one exporter per Mesos slave.
 
 In discovery mode the Mesos slaves are discovered using the `-exporter.discovery.master` flag. The exporter will fetch
-all slave metrics and export them. 
+all slave metrics and export them.
 This mode lets you have one exporter per Mesos cluster.
-
-
-### Docker
-
-A Docker container is available at
-https://registry.hub.docker.com/u/prom/mesos-exporter
-
-If you want to use it with your own configuration, you can mount it as a
-volume:
-
-    docker run -d -p 4000:4000 prom/mesos-exporter
-
-It's also possible to use in your own Dockerfile:
-
-    FROM prom/mesos-exporter
 
 ---

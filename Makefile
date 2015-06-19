@@ -12,6 +12,6 @@
 # limitations under the License.
 
 VERSION  := 0.1.0
-TARGET   := mesos_exporter
+TARGET   := prometheus_mesos_metrics
 
 include Makefile.COMMON
